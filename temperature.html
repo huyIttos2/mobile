@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script !src="">
+    let Temperature = function (celsius) {
+        this.celcius = celsius;
+        this.SetCelcius = function (C) {
+            this.celcius = C;
+        };
+        this.getFahrenheit = function () {
+            return this.celcius*1.8 +32;
+        };
+        this.getKelvin = function () {
+            return this.celcius + 273.15;
+        }
+    }
+    let temperature1 = new Temperature(3);
+    let fahrenheit1 = temperature1.getFahrenheit();
+    let kelvin1 = temperature1.getKelvin();
+    alert("F : " + fahrenheit1 + " K :" + kelvin1);
+</script>
+</body>
+</html>

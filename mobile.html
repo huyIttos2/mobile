@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script !src="">
+   
+    let Mobile = function (name,energy) {
+        this.name = name;
+        this.inbox = [];
+        this.outbox = [];
+        this.status = true;
+        this.energy =energy;
+        this.decreaseEnergy = function () {
+            if(this.energy > 0){
+                this.energy--;
+            }
+        };
+        this.increaseEnergy = function () {
+            this.energy++;
+        }
+        this.getName = function () {
+            return this.name;
+        }
+        this.getEnergy = function () {
+            return this.energy;
+        };
+        this.turnOn = function () {
+            this.status = true;
+        };
+        this.turnOff = function () {
+            this.status = false;
+        };
+        this.charge = function () {
+             if(this.energy<100){
+                    this.energy++;
+            }
+             if(this.energy == 100){
+                 return this.energy;
+             }
+            this.increaseEnergy();
+        };
+        this.writeMessage = function (message) {
+            this.message = message;
+            this.decreaseEnergy();
+        };
+        this.sendMessage = function (phone) {
+            this.outbox.push(this.message);
+            phone.inbox.push(this.message);
+            this.decreaseEnergy();
+        };
+        this.getInbox = function () {
+            return this.inbox;
+            this.decreaseEnergy();
+        };
+        this.getOutbox = function () {
+            return this.outbox;
+            this.decreaseEnergy();
+        };
+    }
+    let mobile1 = new Mobile("Nokia",100);
+    let mobile2 = new Mobile("iphone", 50);
+   let name1 = mobile1.getName();
+   let name2 = mobile2.getName();
+   let message1 = mobile1.writeMessage("hello i can hear u");
+  let outbox1 = mobile1.sendMessage(mobile2);
+    console.log(mobile1.getOutbox());
+    console.log(mobile1.getEnergy());
+    let message2 = mobile1.writeMessage("hello i am huy");
+    let outbox2 = mobile1.sendMessage(mobile2);
+    let inbox2 = mobile2.getInbox();
+    console.log(mobile2.getInbox());
+    mobile2.charge();
+   mobile1.charge();
+    console.log (mobile1.getEnergy());
+    mobile1.charge();
+    console.log (mobile1.getEnergy());
+
+</script>
+</body>
+</html>

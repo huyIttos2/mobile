@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script !src="">
+    let Rectangle = function (width, height) {
+        this.width = width;
+        this.height = height;
+        this.setWidth = function (w) {
+            this.width = w;
+        };
+        this.getWidth = function () {
+            return this.width;
+        };
+        this.getHeight = function () {
+            return this.height;
+        };
+        this.setHeight = function (h) {
+            this.height = h;
+        };
+        this.getArea = function () {
+            return this.width*this.height;
+        };
+        this.getPerimeter = function () {
+            return this.width*this.height*2;
+        }
+    }
+    let rec1 = new Rectangle(3, 4);
+    let area1 = rec1.getArea();
+    let perimeter1 = rec1.getPerimeter();
+    alert("area:" + area1 + "perimeter:" + perimeter1);
+</script>
+</body>
+</html>
